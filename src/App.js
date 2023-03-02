@@ -1,14 +1,18 @@
-import Cart from './components/Cart/Cart';
-import Layout from './components/Layout/Layout';
-import Products from './components/Shop/Products';
+import Cart from "./components/Cart/Cart";
+import Layout from "./components/Layout/Layout";
+import Products from "./components/Shop/Products";
+
+import { useSelector } from "react-redux";
 
 function App() {
-  return (
-    <Layout>
-      <Cart />
-      <Products />
-    </Layout>
-  );
+	const cartIsShown = useSelector((state) => state.cartIsShown);
+
+	return (
+		<Layout>
+			{cartIsShown && <Cart />}
+			<Products />
+		</Layout>
+	);
 }
 
 export default App;
